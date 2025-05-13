@@ -155,3 +155,40 @@ class UnsortedArray:
 
         for index in range(self._size):
             callback(self._array[index])
+
+    def max_in_array(self):
+        '''
+        Find the index and the maximum value in an unsorted array.
+
+        Parameters:
+            None
+        '''
+        if self._size == 0:
+            raise ValueError('The array is empty')
+        else:
+            max_value = self._array[0]
+            max_index = 0
+            for index in range(1, self._size):
+                if self._array[index] > max_value:
+                    max_value = self._array[index]
+                    max_index = index
+            return max_index, max_value
+        
+    def min_in_array(self):
+        '''
+        Find the index and the minimum value in an unsorted array.
+
+        Parameters:
+            None
+        '''
+        if self._size == 0:
+            raise ValueError('The array is empty')
+        else:
+            min_value = self._array[0]
+            min_index = 0
+            for index in range(1, self._size):
+                if self._array[index] < min_value:
+                    min_value = self._array[index]
+                    min_index = index
+            return min_index, min_value
+        
