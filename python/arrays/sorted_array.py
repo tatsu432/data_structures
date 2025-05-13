@@ -1,5 +1,5 @@
 import arrays.core as core
-from typing import Union
+from typing import Union, Callable
 
 class SortedArray:
     '''Return a new sorted array whose items are restricted by typecode, and
@@ -121,7 +121,7 @@ class SortedArray:
             value (any): The value to insert into the sorted array.
 
         Returns:
-            None
+            None 
 
         Functionality:
             Inserts the given value into the sorted array while maintaining the sorted order.
@@ -229,3 +229,27 @@ class SortedArray:
         for i in range(index, self._size - 1):
             self._array[i] = self._array[i + 1]
         self._size -= 1
+
+    def delete_by_index(self, index: int) -> None:
+        '''
+        Delete an element from the sorted array by index.
+
+        Parameters:
+            index (int): The index of the element to delete.
+        '''
+        # Must shift all the elements after the position of the target
+        if index < 0 or index >= self._size:
+            raise IndexError(f'Index out of bound: {index}')
+        for i in range(index, self._size - 1):
+            self._array[i] = self._array[i + 1]
+        self._size -= 1
+
+    def traverse(self, callback: Callable) -> None:
+        '''
+        Traverse the sorted array.
+
+        Parameters:
+            callback (Callable): A function that takes an element of the array as an argument.
+        '''
+        for i in range(self._size):
+            callback(self._array[i])

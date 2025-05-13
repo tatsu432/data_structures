@@ -12,3 +12,6 @@ c#/bin
 c#/obj
 c#/*.csproj
 *.sln
+
+# Practice
+z_prac/
