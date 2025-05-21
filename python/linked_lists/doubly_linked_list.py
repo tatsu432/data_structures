@@ -311,7 +311,7 @@ class DoublyLinkedList:
         Parameters:
         - data (Any): The data for the new node to append.
         
-        Warning: this method requires traversing a linear number (O(n))
+        Warning: this method in SLL requires traversing a linear number (O(n))
         of nodes.
         """
 
